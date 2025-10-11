@@ -39,3 +39,55 @@
   }
 }
 
+@layer standard {
+  body {
+    background-color: var(--platinum);
+    color: var(--onyx);
+  }
+
+  h1 {
+    font-size: calc(var(--base-font-size) * 2.9);
+  }
+
+  h2 {
+    font-size: var(--base-font-size);
+    text-transform: uppercase;
+    color: var(--windsurfing);
+    letter-spacing: 0.25em;
+  }
+
+  a {
+    color: var(--windsurfing);
+    &:hover {
+      color: var(--marina);
+    }
+  }
+
+  img {
+    border-radius: var(--corners);
+    background-color: whitesmoke;
+  }
+
+  /* svg social icon bar*/
+  .icons {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-end;
+    gap: 2rem;
+  }
+
+  ul svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .social {
+    fill: var(--windsurfing);
+    &:hover {
+      fill: var(--marina);
+    }
+  }
+}
