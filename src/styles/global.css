@@ -1,3 +1,5 @@
+@layer base, layout, standard;
+
 @layer base {
   :root {
     --white: #f9faff;
