@@ -102,6 +102,7 @@
   }
 
   .social {
+    pointer-events: bounding-box;
     fill: var(--windsurfing);
     &:hover {
       fill: var(--marina);
