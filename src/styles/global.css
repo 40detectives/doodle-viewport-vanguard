@@ -97,8 +97,8 @@
 
   /* svg social icon bar*/
   ul svg {
-    width: 36px;
-    height: 36px;
+    width: 55px;
+    height: 55px;
   }
 
   .social {
@@ -141,6 +141,7 @@
 
     .icons {
       justify-content: start;
+      /* flex-wrap: nowrap; */
     }
 
     h1 {
@@ -149,6 +150,11 @@
   }
 
   @layer standard {
+    ul svg {
+      width: 70px;
+      height: 70px;
+    }
+
     .main-article img {
       max-height: 500px;
       margin: 0 0 0 auto;
