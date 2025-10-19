@@ -123,7 +123,7 @@
 @media (width >= 750px) {
   @layer base {
     :root {
-      --base-font-size: 1.5rem;
+      --base-font-size: 1.25rem;
     }
   }
 
@@ -141,6 +141,10 @@
 
     .icons {
       justify-content: start;
+    }
+
+    h1 {
+      margin-inline-start: -3px; /* fixes visual misalign between h2 and h1 */
     }
   }
 
