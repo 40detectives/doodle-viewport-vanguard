@@ -39,11 +39,17 @@
   p {
     line-height: 1.5;
   }
+
+  @media(width >= 750px) {
+    :root {
+      --base-font-size: 1.5rem;
+    }
+  }
 }
 
 @layer layout {
   .wrapper {
-    max-width: 900px;
+    max-width: 60ch;
     margin: 0 auto;
     padding: 1rem;
   }
@@ -68,6 +74,23 @@
     flex-flow: row wrap;
     gap: 2rem;
     justify-content: center;
+  }
+
+  @media(width >= 750px) {
+    .wrapper {
+      padding: 5rem;
+      max-width: 75ch;
+    }
+
+    .main-article {
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      text-align: left;
+    }
+
+    .icons {
+      justify-content: start;
+    }
   }
 }
 
@@ -117,5 +140,17 @@
     overflow: hidden;
     border-radius: var(--corners);
     background-color: #ccd6de;
+  }
+
+  @media(width >= 750px) {
+    .main-article img {
+      max-height: 500px;
+      margin: 0 0 0 auto;
+      object-fit: none;
+      object-position: 20% 0%;
+      overflow: auto;
+      height: auto;
+      width: 400px;
+    }
   }
 }
