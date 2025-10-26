@@ -180,6 +180,14 @@
     h1 {
       margin-inline-start: -3px; /* fixes visual misalign between h2 and h1 */
     }
+
+    footer {
+      text-align: left;
+    }
+
+    .footer-text {
+      grid-template-columns: repeat(3, 1fr);
+    }
   }
 
   @layer standard {
