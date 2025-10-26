@@ -69,6 +69,32 @@
     gap: 2rem;
     justify-content: center;
   }
+
+  footer {
+    text-align: center;
+  }
+
+  .h2-footer {
+    margin: 2rem 0;
+  }
+
+  .footer-text {
+    line-height: 1.5;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-text-box ul {
+    font-size: calc(var(--base-font-size) * 0.85);
+    list-style-type: none;
+    margin: 0;
+    padding:0;
+  }
+
+  .footer-text-box li {
+    line-height: 2;
+  }
 }
 
 @layer standard {
@@ -117,6 +143,13 @@
     overflow: hidden;
     border-radius: var(--corners);
     background-color: #ccd6de;
+  }
+
+  footer .social {
+    fill: var(--onyx);
+    &:hover {
+      fill: var(--marina)
+    }
   }
 }
 
