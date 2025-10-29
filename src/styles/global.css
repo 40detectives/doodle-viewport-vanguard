@@ -264,3 +264,23 @@
     }
   }
 }
+
+@media (width >= 850px) {
+  @layer layout{
+    main {
+      text-align: left;
+    }
+  
+    .project {
+      grid-template-columns: 1fr 1fr;
+    }
+  
+    .project img {
+      grid-row: auto;
+    }
+  
+    .project ul {
+      justify-content: start;
+    }
+  }
+}
