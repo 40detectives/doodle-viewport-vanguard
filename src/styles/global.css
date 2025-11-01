@@ -162,8 +162,8 @@
 
   /* svg social icon bar*/
   ul svg {
-    width: 45px;
     height: 45px;
+    width: 45px;
   }
 
   .social {
@@ -249,8 +249,8 @@
 
   @layer standard {
     ul svg {
-      width: 54px;
       height: 54px;
+      width: auto;
     }
 
     .main-article img {
