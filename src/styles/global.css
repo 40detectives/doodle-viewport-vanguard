@@ -12,10 +12,15 @@
     --corners: 24px 0;
     --corners-sm: 10px 0;
     --base-font-size: 1rem;
+    --ld-bg: light-dark(var(--platinum), var(--charcoal));
+    --ld-text: light-dark(var(--onyx), var(--white));
+    --ld-project: light-dark(var(--white), #2e313d);
+    --ld-blue: light-dark(var(--windsurfing), #6dadd0);
   }
 
   html {
     box-sizing: border-box;
+    color-scheme: light dark;
   }
 
   *,
@@ -133,8 +138,8 @@
 
 @layer standard {
   body {
-    background-color: var(--platinum);
-    color: var(--onyx);
+    background-color: var(--ld-bg);
+    color: var(--ld-text);
   }
 
   img {
@@ -148,12 +153,12 @@
   h2 {
     font-size: var(--base-font-size);
     text-transform: uppercase;
-    color: var(--windsurfing);
+    color: var(--ld-blue);
     letter-spacing: 0.25em;
   }
 
   a {
-    color: var(--windsurfing);
+    color: var(--ld-blue);
 
     &:hover {
       color: var(--marina);
@@ -168,7 +173,7 @@
 
   .social {
     pointer-events: bounding-box;
-    fill: var(--windsurfing);
+    fill: var(--ld-blue);
 
     &:hover {
       fill: var(--marina);
@@ -185,7 +190,7 @@
   }
 
   footer .social {
-    fill: var(--onyx);
+    fill: var(--ld-text);
 
     &:hover {
       fill: var(--marina);
@@ -193,7 +198,7 @@
   }
 
   .project {
-    background-color: var(--white);
+    background-color: var(--ld-project);
     border-radius: var(--corners);
   }
 
