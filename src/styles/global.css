@@ -23,6 +23,13 @@
     color-scheme: light dark;
   }
 
+  html:has(fieldset input[value="light"]:checked) {
+    color-scheme: light;
+  }
+  html:has(fieldset input[value="dark"]:checked) {
+    color-scheme: dark;
+  }
+
   *,
   *::before,
   *::after {
@@ -54,6 +61,16 @@
     padding: 1rem;
   }
 
+  /* light/dark radio buttons */
+  fieldset {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: 3rem;
+    max-width: 300px;
+    margin: 0 auto 5rem;
+  }
+
   /* about me layout styling */
   .main-article {
     display: grid;
@@ -80,7 +97,8 @@
     text-align: center;
   }
 
-  .h2-spacing { /* improve naming for this */
+  /* TODO: improve naming for this class */
+  .h2-spacing {
     margin: 2rem 0;
   }
 
@@ -271,19 +289,19 @@
 }
 
 @media (width >= 850px) {
-  @layer layout{
+  @layer layout {
     main {
       text-align: left;
     }
-  
+
     .project {
       grid-template-columns: 1fr 1fr;
     }
-  
+
     .project img {
       grid-row: auto;
     }
-  
+
     .project ul {
       justify-content: start;
     }
