@@ -220,7 +220,7 @@
   @layer layout {
     .wrapper {
       padding: 5rem;
-      max-width: 75ch;
+      max-width: 90ch;
     }
 
     .main-article {
