@@ -4,19 +4,22 @@
   :root {
     --white: #f9faff;
     --platinum: #e3e4e8;
+    --steel-lightblue: #ccd6de;
     --windsurfing: #32779b;
     --marina: #5a91c7;
     --gray: #9a9a9a;
     --onyx: #3c3d44;
     --charcoal: #343c47;
     --midnight-graphite: #181a26;
+    --stormy-slate: #43525e;
     --corners: 24px 0;
     --corners-sm: 10px 0;
     --base-font-size: 1rem;
     --ld-bg: light-dark(var(--platinum), var(--charcoal));
     --ld-text: light-dark(var(--onyx), var(--white));
-    --ld-project: light-dark(var(--white), #2e313d);
+    --ld-project: light-dark(var(--white), var(--stormy-slate)); /* #2e313d */
     --ld-blue: light-dark(var(--windsurfing), #6dadd0);
+    --ld-img-bg: light-dark(var(--steel-lightblue), #434f5e); /* #434f5e */
   }
 
   html {
@@ -195,7 +198,7 @@
     height: 360px;
     width: 300px;
     overflow: hidden;
-    background-color: #ccd6de; /* TODO: possible dark mode bg: #899ca6 */
+    background-color: var(--ld-img-bg);
   }
 
   footer .social {
