@@ -1,21 +1,37 @@
-@layer base, layout, standard;
+@layer base, layout, standard, switch;
 
 @layer base {
   :root {
     --white: #f9faff;
     --platinum: #e3e4e8;
+    --steel-lightblue: #ccd6de;
     --windsurfing: #32779b;
     --marina: #5a91c7;
     --gray: #9a9a9a;
     --onyx: #3c3d44;
     --charcoal: #343c47;
+    --midnight-graphite: #181a26;
+    --stormy-slate: #43525e;
     --corners: 24px 0;
     --corners-sm: 10px 0;
     --base-font-size: 1rem;
+    --ld-bg: light-dark(var(--platinum), var(--charcoal));
+    --ld-text: light-dark(var(--onyx), var(--white));
+    --ld-project: light-dark(var(--white), var(--stormy-slate)); /* #2e313d */
+    --ld-blue: light-dark(var(--windsurfing), #6dadd0);
+    --ld-img-bg: light-dark(var(--steel-lightblue), #434f5e); /* #434f5e */
   }
 
   html {
     box-sizing: border-box;
+    color-scheme: light dark;
+  }
+
+  html:has(fieldset input[value="light"]:checked) {
+    color-scheme: light;
+  }
+  html:has(fieldset input[value="dark"]:checked) {
+    color-scheme: dark;
   }
 
   *,
@@ -75,7 +91,8 @@
     text-align: center;
   }
 
-  .h2-footer {
+  /* TODO: improve naming for this class */
+  .h2-spacing {
     margin: 2rem 0;
   }
 
@@ -133,8 +150,8 @@
 
 @layer standard {
   body {
-    background-color: var(--platinum);
-    color: var(--onyx);
+    background-color: var(--ld-bg);
+    color: var(--ld-text);
   }
 
   img {
@@ -148,12 +165,12 @@
   h2 {
     font-size: var(--base-font-size);
     text-transform: uppercase;
-    color: var(--windsurfing);
+    color: var(--ld-blue);
     letter-spacing: 0.25em;
   }
 
   a {
-    color: var(--windsurfing);
+    color: var(--ld-blue);
 
     &:hover {
       color: var(--marina);
@@ -168,7 +185,7 @@
 
   .social {
     pointer-events: bounding-box;
-    fill: var(--windsurfing);
+    fill: var(--ld-blue);
 
     &:hover {
       fill: var(--marina);
@@ -181,11 +198,11 @@
     height: 360px;
     width: 300px;
     overflow: hidden;
-    background-color: #ccd6de;
+    background-color: var(--ld-img-bg);
   }
 
   footer .social {
-    fill: var(--onyx);
+    fill: var(--ld-text);
 
     &:hover {
       fill: var(--marina);
@@ -193,7 +210,7 @@
   }
 
   .project {
-    background-color: var(--white);
+    background-color: var(--ld-project);
     border-radius: var(--corners);
   }
 
@@ -210,10 +227,102 @@
   }
 }
 
+@layer switch {
+  .radio-switch {
+    border: none;
+    padding: 0;
+    white-space: nowrap;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+
+  .radio-switch legend {
+    font-size: 2px;
+    opacity: 0;
+    position: absolute;
+  }
+
+  .radio-switch label {
+    display: inline-block;
+    line-height: 2;
+    font-size: calc(var(--base-font-size) * 0.9);
+    position: relative;
+    z-index: 2;
+  }
+
+  .radio-switch input {
+    opacity: 0;
+    position: absolute;
+  }
+
+  .radio-switch label:first-of-type {
+    padding-right: 5em;
+  }
+
+  .radio-switch label:last-child {
+    margin-left: -4.25em;
+    padding-left: 5em;
+  }
+
+  .radio-switch:focus-within label:first-of-type:after {
+     box-shadow:
+      0 0 0 2px var(--white),
+      0 0 0 5px var(--marina);
+  }
+
+  /* making the switch UI.  */
+  .radio-switch label:first-of-type:before,
+  .radio-switch label:first-of-type:after {
+    border: 1px solid var(--onyx);
+    content: "";
+    overflow: hidden;
+    pointer-events: none;
+    position: absolute;
+    vertical-align: middle;
+  }
+
+  .radio-switch label:first-of-type:before {
+    background: var(--white);
+    border: 1px solid var(--onyx);
+    border-radius: 100%;
+    position: absolute;
+    right: 0%;
+    transform: translateX(0.15em);
+    transition: transform 0.2s ease-in-out;
+    height: 2em;
+    width: 2em;
+    z-index: 2;
+  }
+
+  .radio-switch label:first-of-type:after {
+    background: var(--midnight-graphite);
+    border-radius: 1em;
+    margin: 0 1em;
+    transition: background 0.2s ease-in-out;
+    width: 4em;
+    height: 1.6em;
+    transform: translateY(3px);
+  }
+  
+  .radio-switch input:first-of-type:checked ~ label:first-of-type:after {
+    background: var(--marina);
+  }
+
+  .radio-switch input:first-of-type:checked ~ label:first-of-type:before {
+    transform: translateX(-2.15em);
+  }
+
+  .radio-switch input:last-of-type:checked ~ label:last-of-type {
+    z-index: 1;
+  }
+}
+
 @media (width >= 750px) {
   @layer base {
     :root {
-      --base-font-size: 1.25rem;
+      --base-font-size: 1.125rem;
     }
   }
 
@@ -263,22 +372,28 @@
       width: 400px;
     }
   }
+
+  @layer switch {
+    .radio-switch {
+      justify-content: flex-end;
+    }
+  }
 }
 
 @media (width >= 850px) {
-  @layer layout{
+  @layer layout {
     main {
       text-align: left;
     }
-  
+
     .project {
       grid-template-columns: 1fr 1fr;
     }
-  
+
     .project img {
       grid-row: auto;
     }
-  
+
     .project ul {
       justify-content: start;
     }
